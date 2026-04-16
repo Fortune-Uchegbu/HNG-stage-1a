@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="./src/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hng-0-task-card</title>
+  </head>
+  <body>
+    <div id="app">
+      <section id="taskList">
+        <article id="parentCard" data-testid="test-todo-card">
+          <header>
+            <h2 id="title" data-testid="test-todo-title">Study</h2>
+            <div>
+              <span id="priority" data-testid="test-todo-priority">Medium</span>
+              <span id="status" data-testid="test-todo-status">In progress</span>
+              <div aria-live="polite" aria-atomic="true">
+                <time id="time-remaining" data-testid="test-todo-time-remaining" datetime="">Due in 3 days</time>
+              </div>
+            </div>
+          </header>
+
+          <section>
+            <p data-testid="test-todo-description">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ducimus, quisquam explicabo aspernatur doloribus libero.
+            </p>
+            <ul data-testid="test-todo-tags" role="list">
+              <li data-testid="test-todo-tag-work" id="li-work">Work</li>
+              <li data-testid="test-todo-tag-urgent" id="li-urgent">Urgent</li>
+            </ul>
+            <div>
+              <span>
+                <input type="checkbox" name="taskDone" id="taskDone">
+                <label for="taskDone">Completed</label>
+              </span>
+              <time data-testid="test-todo-due-date" id="dueDate">Due April 19, 2026</time>
+            </div>
+          </section>
+          <footer>
+            <button data-testid="test-todo-edit-button" type="button" id="editBtn" name="editBtn">Edit</button>
+            <button data-testid="test-todo-edit-button" type="button" id="delBtn" name="delBtn">Delete</button>
+          </footer>
+          
+        </article>
+      </section>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
