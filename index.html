@@ -17,10 +17,21 @@
             <h2 id="title" data-testid="test-todo-title">Study</h2>
             <div>
               <span id="priority" data-testid="test-todo-priority">Medium</span>
-              <span id="status" data-testid="test-todo-status">In progress</span>
-              <div aria-live="polite" aria-atomic="true">
+              <div aria-live="polite" aria-atomic="true" id="timeWrap">
                 <time id="time-remaining" data-testid="test-todo-time-remaining" datetime="">Due in 3 days</time>
               </div>
+              <div id="customMenu">
+                <div id="statusWrap" tabindex="0" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-controls="statusListBox">
+                  <span id="status" data-testid="test-todo-status">In progress</span>
+                  <img src="./src/assets/icons/arrow-down.png" alt="arrow-down" id="arrow-down">
+                </div>
+                <ul id="statusListBox" role="listbox" hidden>
+                  <li role="option" tabindex="-1" aria-selected="false" data-value="Pending">Pending</li>
+                  <li role="option" tabindex="-1" aria-selected="false" data-value="In progress">In progress</li>
+                  <li role="option" tabindex="-1" aria-selected="false" data-value="Done">Done</li>
+                </ul>
+              </div>
+              
             </div>
           </header>
 

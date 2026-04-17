@@ -1,7 +1,7 @@
 :root {
   /* colours */
   --text: black;
-  --text-h: #08060d;
+  --text-h: hsl(257, 37%, 4%);
   --bg: #16171d;
   --card-bg: whitesmoke;
 
@@ -87,24 +87,66 @@ h2 {
     header {
       div {
         display: flex;
-        flex-direction: flex-wrap;
+        flex-wrap: wrap;
         font-size: 12px;
-        column-gap: 8px;
+        gap: 8px;
 
         *{
           border-radius: 10px;
           padding: 0px 6px;
+          max-height: min-content;
+          cursor: pointer;
         }
 
         #priority {
           background-color: lightsalmon;
         }
-        #status {
-          background-color: lightblue;
+        #customMenu {
+          position: relative;
+        
+          #statusWrap {
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            column-gap: 4px;
+            
+
+            span {padding: 0;}
+            #arrow-down{
+              width: 10px;
+              padding: 0;
+            }
+          }
+          #statusWrap:hover{
+            filter: brightness(0.9);
+            outline: 1.5px solid darkslategray;
+          }
+          #statusListBox{
+            list-style-type: none;
+            background-color: lightgray;
+            margin-top: 8px;
+            padding: 0;
+            border-radius: 0;
+            position: absolute;
+            top: 100%;
+            left: 12px;
+            li{
+              border-radius: 0;
+              padding: 4px 8px;
+            }
+            li:hover, li:focus, li:active{
+              background-color: darkslategray;
+              color: whitesmoke;
+            }
+          }
         }
-        #time-remaining {
-          background-color: lightsteelblue;
+        #timeWrap{
+          padding: 0;
+          #time-remaining {
+            background-color: lightsteelblue;
+          }
         }
+        
       }
     }
 
