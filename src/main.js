@@ -1,4 +1,5 @@
 // dom elements
+const parentCard = document.getElementById("parentCard");
 const checkBox = document.getElementById("taskDone");
 const title = document.getElementById("title");
 const status = document.getElementById("status");
@@ -24,7 +25,7 @@ const myInterval = setInterval(() => {
 timeLeft.textContent = timeLeftContent;
 }, 60000)
 // card click events
-document.getElementById("parentCard").addEventListener('click', (e) => {
+parantCard.addEventListener('click', (e) => {
     // checkbox clicked
     if (e.target === checkBox) {
         title.classList.toggle("striked");
@@ -43,8 +44,8 @@ document.getElementById("parentCard").addEventListener('click', (e) => {
 // status control logic
 const options = Array.from(statusListBox.querySelectorAll('[role="option"]'));
 let activeIndex = -1; //nothing highlighted yet
-const handleStatusMenu = (state) => {
-    const isClosed = state === undefined ? statusListBox.hidden : state; //hold initial hidden state & handle undefined args
+const handleStatusMenu = (hiddenState) => {
+    const isClosed = state === undefined ? statusListBox.hidden : hiddenState; //hold initial hidden state & handle undefined args
     statusListBox.hidden = !isClosed; //invert the hidden state
     statusWrap.setAttribute("aria-expanded", isClosed); // leave the expanded opposite to the new hidden state
    
@@ -55,3 +56,24 @@ const handleStatusMenu = (state) => {
     // removeVisualHighlight();
   }
 }
+
+// status control keyboard navigation
+parentCard.addEventListener("keydown", (e) => {
+    isClosed == statusWrap.getAttribute("aria-expanded") === "false";
+    
+    switch (e.key){
+        case "ArrowDown":
+            e.preventDefault();
+            handleStatusMenu(isClosed);
+            activeIndex = Math.min(options.length-1, activeIndex+1);
+            // updateFocus();
+            break;
+
+        case 'ArrowUp':
+            e.preventDefault();
+            activeIndex = Math.max(activeIndex - 1, 0);
+            updateFocus();
+            break;
+
+    }
+})
